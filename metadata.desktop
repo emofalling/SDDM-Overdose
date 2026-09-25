@@ -1,8 +1,8 @@
 [SddmGreeterTheme]
 Name=SDDM Overdose
 Description=A SDDM theme in the style of 'NEEDY GIRL OVERDOSE' (https://whysoserious.jp/needy/)
-Author=keyitdev
-Website=[Readying...]
+Author=emofalling
+Website=https://github.com/emofalling/SDDM-Overdose
 License=MIT
 Type=sddm-theme
 Version=0.1
