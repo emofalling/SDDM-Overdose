@@ -107,7 +107,7 @@ Rectangle {
     }
 
     Rectangle {
-        width: parent.width / 5
+        width: parent.width * 0.2
         anchors.centerIn: parent
         // color: "#fdfdfd"
         // radius: 20
@@ -116,7 +116,7 @@ Rectangle {
             width: parent.width
             spacing: 24
 
-            Row{
+            Row {
                 spacing: 24
                 anchors.horizontalCenter: parent.horizontalCenter
                 Widgets.PixelImageButton {
