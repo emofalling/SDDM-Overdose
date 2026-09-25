@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=sddm-overdose-theme
+Description=A SDDM theme in the style of 'NEEDY GIRL OVERDOSE' (https://whysoserious.jp/needy/)
+Author=keyitdev
+Website=[Readying...]
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=0.1
+ConfigFile=config.conf
+Screenshot=Previews/screenshot.png
+MainScript=Main.qml
+TranslationsDirectory=Translations
+Theme-Id=sddm-overdose-theme
+Theme-API=2.0
+QtVersion=6
