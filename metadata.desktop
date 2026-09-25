@@ -1,9 +1,9 @@
 [SddmGreeterTheme]
-Name=sddm-overdose-theme
+Name=SDDM Overdose
 Description=A SDDM theme in the style of 'NEEDY GIRL OVERDOSE' (https://whysoserious.jp/needy/)
 Author=keyitdev
 Website=[Readying...]
-License=GPL-3.0-or-later
+License=MIT
 Type=sddm-theme
 Version=0.1
 ConfigFile=config.conf
