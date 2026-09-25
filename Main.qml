@@ -49,7 +49,7 @@ Rectangle {
 
     FontLoader {
         id: latinFont
-        source: "fonts/fusion-pixel/fusion-pixel-10px-proportional-latin.ttf"
+        source: "Fonts/fusion-pixel/fusion-pixel-10px-proportional-latin.ttf"
     }
 
     property var userNames: []
