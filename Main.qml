@@ -1,5 +1,6 @@
 import QtQuick
 import QtMultimedia
+import QtQuick.Layouts
 import QtQuick.Controls
 import "Widgets" as Widgets
 
@@ -8,9 +9,10 @@ Rectangle {
     anchors.fill: parent
     color: "#fde1f1"
 
+
     Image {
         anchors.fill: parent
-        source: "Images/bg.png"
+        source: "Images/tile.png"
         fillMode: Image.Tile
     }
 
@@ -48,7 +50,7 @@ Rectangle {
     }
 
     FontLoader {
-        id: latinFont
+        id: pixelFont
         source: "Fonts/fusion-pixel/fusion-pixel-10px-proportional-latin.ttf"
     }
 
@@ -67,6 +69,21 @@ Rectangle {
                 icons.push(model.icon)
                 userNames = names
                 userIcons = icons
+            }
+        }
+    }
+
+    property string curSessionName: ""
+    property int curSessionIndex: -1
+
+    Repeater {
+        model: sessionModel
+        delegate: Item {
+            Component.onCompleted: {
+                if (index === sessionModel.lastIndex) {
+                    curSessionName = model.name
+                    curSessionIndex = index
+                }
             }
         }
     }
@@ -106,7 +123,9 @@ Rectangle {
         }
     }
 
+
     Rectangle {
+        id: loginRect
         width: parent.width * 0.2
         anchors.centerIn: parent
         // color: "#fdfdfd"
@@ -114,15 +133,15 @@ Rectangle {
         Column {
             anchors.centerIn: parent
             width: parent.width
-            spacing: 24
+            spacing: 12 * config.Scale
 
             Row {
-                spacing: 24
+                spacing: 12 * config.Scale
                 anchors.horizontalCenter: parent.horizontalCenter
                 Widgets.PixelImageButton {
                     iconSource: "../Images/arrow_l.png"
-                    width: 24
-                    height: 92
+                    width: 12 * config.Scale
+                    height: 46 * config.Scale
                     onClicked: {
                         buttonSound.stop()
                         buttonSound.play()
@@ -139,15 +158,15 @@ Rectangle {
                                 ? userIcons[currentUserIndex]
                                 : "Images/default_icon.jpg"
                             )
-                    width: 96
-                    height: 96
+                    width: 48 * config.Scale
+                    height: 48 * config.Scale
                     fillMode: Image.PreserveAspectFit
                     // anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Widgets.PixelImageButton {
                     iconSource: "../Images/arrow_r.png"
-                    width: 24
-                    height: 92
+                    width: 12 * config.Scale
+                    height: 46 * config.Scale
                     onClicked: {
                         buttonSound.stop()
                         buttonSound.play()
@@ -161,10 +180,11 @@ Rectangle {
             Text {
                 id: usernameText
                 text: userNames[currentUserIndex]
-                font.pixelSize: 30
+                height: 24 * config.Scale
+                font.pixelSize: 20 * config.Scale
                 color: "#4e28cc"
                 anchors.horizontalCenter: parent.horizontalCenter
-                font.family: latinFont.name
+                font.family: pixelFont.name
                 visible: currentUserIndex !== -1
             }
 
@@ -174,8 +194,8 @@ Rectangle {
 
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
-                anchors.leftMargin: 40
-                anchors.rightMargin: 40
+                anchors.leftMargin: 20 * config.Scale
+                anchors.rightMargin: 20 * config.Scale
 
                 focus: currentUserIndex === -1 ? true : false
                 Keys.onReturnPressed: passwordField.forceActiveFocus()
@@ -190,8 +210,8 @@ Rectangle {
 
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
-                anchors.leftMargin: 40
-                anchors.rightMargin: 40
+                anchors.leftMargin: 20 * config.Scale
+                anchors.rightMargin: 20 * config.Scale
 
                 focus: currentUserIndex === -1 ? false : true
                 Keys.onUpPressed: usernameField.forceActiveFocus()
@@ -200,25 +220,34 @@ Rectangle {
 
             Widgets.PixelButton {
                 id: loginButton
-                text: qsTr("Login")
+
+                height: 24 * config.Scale
+                font.family: pixelFont.name
+                font.pixelSize: 10 * config.Scale
 
                 anchors.left: parent ? parent.left : undefined
                 anchors.right: parent ? parent.right : undefined
-                anchors.leftMargin: 40
-                anchors.rightMargin: 40 
+                anchors.leftMargin: 20 * config.Scale
+                anchors.rightMargin: 20 * config.Scale
+
+                contentItem: Text {
+                    text: qsTr("Login")
+                    font: parent.font
+                    color: "#4e28cc"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
 
                 onClicked: {
                     buttonSound.stop()
                     buttonSound.play()
                     if(currentUserIndex === -1){
-                        sddm.login(usernameField.text, passwordField.text, sessionModel.lastIndex)
+                        sddm.login(usernameField.text, passwordField.text, curSessionIndex)
                     }
                     else{
-                        sddm.login(userNames[currentUserIndex], passwordField.text, sessionModel.lastIndex)
+                        sddm.login(userNames[currentUserIndex], passwordField.text, curSessionIndex)
                     }
-                    usernameField.enabled = false
-                    passwordField.enabled = false
-                    loginButton.enabled = false
+                    loginRect.enabled = false
                     infoText.text = qsTr("Logging in...")
                     infoText.color = "#4e28cc"
                     // delayLogin_debug.start()
@@ -228,17 +257,163 @@ Rectangle {
             Text {
                 id: infoText
                 text: " "
-                font.pixelSize: 20
+                font.pixelSize: 10 * config.Scale
                 color: "#4e28cc"
                 anchors.horizontalCenter: parent.horizontalCenter
-                font.family: latinFont.name
+                font.family: pixelFont.name
 
-            } 
+            }
         }
     }
 
-    Component.onCompleted: bgm.play()
+    Rectangle {
+        id: bottomTab
 
+        height: 22 * config.Scale
+        color: "#f7e0fa"
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        // 顶部装饰
+        Rectangle {
+            height: 1 * config.Scale
+            color: "#fdfdfd"
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.top
+        }
+
+        Row{
+            spacing: 2 * config.Scale
+            height: parent.height
+            anchors.left: parent.left
+            anchors.leftMargin: 5 * config.Scale
+            anchors.verticalCenter: parent.verticalCenter
+            Widgets.PixelButton2 {
+                id: optionsButton
+                width: 75 * config.Scale
+                height: 16 * config.Scale
+                contentItem: Item {
+                    anchors.fill: parent
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.leftMargin: 2 * config.Scale
+                        spacing: 4 * config.Scale
+
+                        Image {
+                            source: "Images/windose.png"
+                            Layout.preferredWidth: 16 * config.Scale
+                            Layout.preferredHeight: 12 * config.Scale
+                            Layout.alignment: Qt.AlignVCenter
+                            smooth: false
+                        }
+
+                        Text {
+                            text: qsTr("Options...")
+                            font.family: pixelFont.name
+                            font.pixelSize: 10 * config.Scale
+                            color: "#000000"
+                            horizontalAlignment: Text.AlignLeft
+                            verticalAlignment: Text.AlignVCenter
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignVCenter
+                        }
+                    }
+                }
+
+                anchors.verticalCenter: parent.verticalCenter
+
+                onClicked: {
+                    buttonSound.stop()
+                    buttonSound.play()
+                }
+            }
+
+            Widgets.PixelSeparator{}
+
+            Item {
+                id: sessionButton
+
+                implicitWidth: sessionText.implicitWidth + 8 * config.Scale
+                implicitHeight: 16 * config.Scale
+
+                anchors.verticalCenter: parent.verticalCenter
+
+                Text {
+                    id: sessionText
+                    anchors.centerIn: parent
+                    text: curSessionName !== "" ? curSessionName : qsTr("Choose a session...")
+                    font.family: pixelFont.name
+                    font.pixelSize: 10 * config.Scale
+                    color: "#4e28cc"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        sessionMenu.visible = true
+                        buttonSound.stop()
+                        buttonSound.play()
+                    }
+                }
+                /*
+                Menu {
+                    id: sessionMenu
+                    y: -height
+
+                        padding: 0
+
+
+                    Repeater {
+                        model: sessionModel
+
+                        MenuItem {
+                            text: model.name
+                            onTriggered: {
+                                curSessionName = model.name
+                                curSessionIndex = model.index
+                            }
+                        }
+                    }
+                }
+                */
+            }
+
+
+        }            
+        
+
+
+    }
+        // 下拉列表放在根层级，撑满屏幕
+        Widgets.PixelDropdown {
+            id: sessionMenu
+            anchors.fill: parent
+
+            menuX: sessionButton.x
+            menuY: bottomTab.y - 1 * config.Scale
+
+            z: 100
+            items: sessionModel
+            fontFamily: pixelFont.name
+
+            textProvider: function(index, model) {
+                return model.name
+            }
+
+            onItemSelected: function(index, model) {
+                curSessionIndex = index
+                curSessionName = model.name
+                buttonSound.stop()
+                buttonSound.play()
+            }
+        }
+
+    Component.onCompleted: bgm.play()
 
     Timer {
         id: delayLogin_debug
@@ -254,9 +429,7 @@ Rectangle {
         welcome.play()
         infoText.text = qsTr("Login Success!")
         infoText.color = "#28cc28"
-        usernameField.enabled = true
-        passwordField.enabled = true
-        loginButton.enabled = true
+        loginRect.enabled = true
         console.log("Login succeeded")
     }
 
@@ -264,9 +437,7 @@ Rectangle {
         failed.play()
         infoText.text = qsTr("Login Failure!")
         infoText.color = "#cc2828"
-        usernameField.enabled = true
-        passwordField.enabled = true
-        loginButton.enabled = true
+        loginRect.enabled = true
         console.log("Login failed")
     }
 

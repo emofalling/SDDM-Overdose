@@ -1,6 +1,12 @@
 [SddmGreeterTheme]
-Name=SDDM Overdose
-Description=A SDDM theme in the style of 'NEEDY GIRL OVERDOSE' (https://whysoserious.jp/needy/)
+Name=SDDM OVERDOSE
+Name[zh_CN]=SDDM 重度依赖
+Name[zh_TW]=SDDM 重度依賴
+Description=A NEEDY GIRL OVERDOSE-style SDDM theme
+Description[zh_CN]=《主播女孩重度依赖》风格的 SDDM 主题
+Description[zh_TW]=《主播女孩重度依賴》風格的 SDDM 主題
+Description[ja]=「NEEDY GIRL OVERDOSE」風のSDDMテーマ
+Description[ko]='NEEDY GIRL OVERDOSE' 스타일의 SDDM 테마
 Author=emofalling
 Website=https://github.com/emofalling/SDDM-Overdose
 License=MIT

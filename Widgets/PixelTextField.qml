@@ -5,34 +5,36 @@ TextField {
     id: root
 
     color: "#4e28cc"
-    font.family: latinFont.name
-    font.pixelSize: 20
+    font.family: pixelFont.name
+    font.pixelSize: 10 * config.Scale
     placeholderTextColor: "#c1bce7"
     verticalAlignment: TextInput.AlignVCenter
-    leftPadding: 10
-    rightPadding: 10
+    leftPadding: 5 * config.Scale
+    rightPadding: 5 * config.Scale
+    topPadding: 5 * config.Scale
+    bottomPadding: 5 * config.Scale
 
     background: Rectangle {
         color: "#fdfdfd"
 
         Rectangle {
             anchors { left: parent.left; right: parent.right; top: parent.top }
-            height: 2
+            height: 1 * config.Scale
             color: "#8f8d89"
         }
         Rectangle {
             anchors { left: parent.left; top: parent.top; bottom: parent.bottom }
-            width: 2
+            width: 1 * config.Scale
             color: "#8f8d89"
         }
         Rectangle {
             anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-            height: 2
+            height: 1 * config.Scale
             color: "#e2e2e1"
         }
         Rectangle {
             anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
-            width: 2
+            width: 1 * config.Scale
             color: "#e2e2e1"
         }
     }

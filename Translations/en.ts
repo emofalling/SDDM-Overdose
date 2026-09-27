@@ -4,32 +4,42 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../Main.qml" line="173"/>
+        <location filename="../Main.qml" line="193"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="189"/>
+        <location filename="../Main.qml" line="209"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="203"/>
+        <location filename="../Main.qml" line="234"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="222"/>
+        <location filename="../Main.qml" line="251"/>
         <source>Logging in...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="255"/>
+        <location filename="../Main.qml" line="314"/>
+        <source>Options...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="347"/>
+        <source>Choose a session...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="430"/>
         <source>Login Success!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="265"/>
+        <location filename="../Main.qml" line="438"/>
         <source>Login Failure!</source>
         <translation type="unfinished"></translation>
     </message>
