@@ -397,7 +397,6 @@ Rectangle {
             menuX: sessionButton.x
             menuY: bottomTab.y - 1 * config.Scale
 
-            z: 100
             items: sessionModel
             fontFamily: pixelFont.name
 

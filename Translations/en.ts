@@ -34,12 +34,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="430"/>
+        <location filename="../Main.qml" line="429"/>
         <source>Login Success!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="438"/>
+        <location filename="../Main.qml" line="437"/>
         <source>Login Failure!</source>
         <translation type="unfinished"></translation>
     </message>
