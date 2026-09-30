@@ -19,27 +19,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="251"/>
+        <location filename="../Main.qml" line="252"/>
         <source>Logging in...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="314"/>
+        <location filename="../Main.qml" line="315"/>
         <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="347"/>
+        <location filename="../Main.qml" line="348"/>
         <source>Choose a session...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="429"/>
+        <location filename="../Main.qml" line="435"/>
         <source>Login Success!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="437"/>
+        <location filename="../Main.qml" line="444"/>
         <source>Login Failure!</source>
         <translation type="unfinished"></translation>
     </message>
