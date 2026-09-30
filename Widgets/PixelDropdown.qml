@@ -73,7 +73,33 @@ Item {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: mouseArea.containsMouse ? "#e0d0e8" : "transparent"
+                    color: mouseArea.containsMouse ? "#f9e0fa" : "#f7e0fa"
+                    Rectangle {
+                        anchors { left: parent.left; right: parent.right; top: parent.top }
+                        height: 1 * config.Scale
+                        color: mouseArea.containsMouse ? "#815cda" : "transparent"
+                    }
+
+                    // 左侧高光
+                    Rectangle {
+                        anchors { left: parent.left; top: parent.top; bottom: parent.bottom }
+                        width: 1 * config.Scale
+                        color: mouseArea.containsMouse ? "#815cda" : "transparent"
+                    }
+
+                    // 底部阴影
+                    Rectangle {
+                        anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+                        height: 1 * config.Scale
+                        color: mouseArea.containsMouse ? "#fdfdfd" : "transparent"
+                    }
+
+                    // 右侧阴影
+                    Rectangle {
+                        anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
+                        width: 1 * config.Scale
+                        color: mouseArea.containsMouse ? "#fdfdfd" : "transparent"
+                    }
                 }
 
                 Text {

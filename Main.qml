@@ -248,6 +248,7 @@ Rectangle {
                         sddm.login(userNames[currentUserIndex], passwordField.text, curSessionIndex)
                     }
                     loginRect.enabled = false
+                    sessionMenuTrigger.enabled = false
                     infoText.text = qsTr("Logging in...")
                     infoText.color = "#4e28cc"
                     // delayLogin_debug.start()
@@ -353,6 +354,7 @@ Rectangle {
                 }
 
                 MouseArea {
+                    id: sessionMenuTrigger
                     anchors.fill: parent
                     onClicked: {
                         sessionMenu.visible = true
@@ -389,30 +391,34 @@ Rectangle {
 
 
     }
-        // 下拉列表放在根层级，撑满屏幕
-        Widgets.PixelDropdown {
-            id: sessionMenu
-            anchors.fill: parent
 
-            menuX: sessionButton.x
-            menuY: bottomTab.y - 1 * config.Scale
+    // 下拉列表放在根层级，撑满屏幕
+    Widgets.PixelDropdown {
+        id: sessionMenu
+        anchors.fill: parent
 
-            items: sessionModel
-            fontFamily: pixelFont.name
+        menuX: sessionButton.x
+        menuY: bottomTab.y - 1 * config.Scale
 
-            textProvider: function(index, model) {
-                return model.name
-            }
+        items: sessionModel
+        fontFamily: pixelFont.name
 
-            onItemSelected: function(index, model) {
-                curSessionIndex = index
-                curSessionName = model.name
-                buttonSound.stop()
-                buttonSound.play()
-            }
+        textProvider: function(index, model) {
+            return model.name
         }
 
-    Component.onCompleted: bgm.play()
+        onItemSelected: function(index, model) {
+            curSessionIndex = index
+            curSessionName = model.name
+            buttonSound.stop()
+            buttonSound.play()
+        }
+    }
+
+    Component.onCompleted: {
+        if(config.PlayBGM === "true" /*注意config.PlayBGM实际上是string*/) bgm.play()
+        else bgm.stop()
+    }
 
     Timer {
         id: delayLogin_debug
@@ -429,6 +435,7 @@ Rectangle {
         infoText.text = qsTr("Login Success!")
         infoText.color = "#28cc28"
         loginRect.enabled = true
+        sessionMenuTrigger.enabled = true
         console.log("Login succeeded")
     }
 
@@ -437,6 +444,7 @@ Rectangle {
         infoText.text = qsTr("Login Failure!")
         infoText.color = "#cc2828"
         loginRect.enabled = true
+        sessionMenuTrigger.enabled = true
         console.log("Login failed")
     }
 
