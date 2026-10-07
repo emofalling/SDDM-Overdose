@@ -29,47 +29,47 @@
         <translation>选项...</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="385"/>
+        <location filename="../Main.qml" line="386"/>
         <source>Choose a session...</source>
         <translation>选择会话...</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="430"/>
+        <location filename="../Main.qml" line="431"/>
         <source>Caps Lock is ON</source>
         <translation>大写锁定已开启</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Restart</source>
         <translation>重启</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Suspend</source>
         <translation>挂起</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Hybrid Sleep</source>
         <translation>混合睡眠</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="508"/>
+        <location filename="../Main.qml" line="509"/>
         <source>Login Success!</source>
         <translation>登录成功！</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="517"/>
+        <location filename="../Main.qml" line="518"/>
         <source>Login Failure!</source>
         <translation>登录失败！</translation>
     </message>

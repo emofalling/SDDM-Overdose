@@ -365,7 +365,8 @@ Rectangle {
                 onClicked: {
                     buttonSound.stop()
                     buttonSound.play()
-                    optionsMenu.visible = true
+                    // optionsMenu.visible = true
+                    optionsMenu.visible = !optionsMenu.visible
                 }
             }
 

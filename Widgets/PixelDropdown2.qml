@@ -17,11 +17,13 @@ Item {
     visible: false
     z: 100
 
+    /*
     // 全屏遮罩，点击关闭
     MouseArea {
         anchors.fill: parent
         onClicked: root.visible = false
     }
+    */
 
     // 菜单列表
     Column {
@@ -103,7 +105,7 @@ Item {
                     cursorShape: root.enableds[index] || root.enableds[index] === null ? Qt.ArrowCursor : Qt.ForbiddenCursor
                     onClicked: {
                         if (root.funcs[index] && enableds[index]) root.funcs[index]()
-                        if(enableds[index] !== null) {
+                        if(enableds[index]/* !== null*/) {
                             root.visible = false
                         }
 

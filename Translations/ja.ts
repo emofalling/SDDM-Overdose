@@ -29,47 +29,47 @@
         <translation>オプション...</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="385"/>
+        <location filename="../Main.qml" line="386"/>
         <source>Choose a session...</source>
         <translation>セッションを選択...</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="430"/>
+        <location filename="../Main.qml" line="431"/>
         <source>Caps Lock is ON</source>
         <translation>Caps Lock がオンです</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Shutdown</source>
         <translation>シャットダウン</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Restart</source>
         <translation>再起動</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Suspend</source>
         <translation>サスペンド</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Hibernate</source>
         <translation>ハイバネート</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="445"/>
+        <location filename="../Main.qml" line="446"/>
         <source>Hybrid Sleep</source>
         <translation>ハイブリッドスリープ</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="508"/>
+        <location filename="../Main.qml" line="509"/>
         <source>Login Success!</source>
         <translation>ログイン成功！</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="517"/>
+        <location filename="../Main.qml" line="518"/>
         <source>Login Failure!</source>
         <translation>ログイン失敗！</translation>
     </message>
