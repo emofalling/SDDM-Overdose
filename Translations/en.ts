@@ -4,42 +4,72 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../Main.qml" line="193"/>
+        <location filename="../Main.qml" line="227"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="209"/>
+        <location filename="../Main.qml" line="243"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="234"/>
+        <location filename="../Main.qml" line="268"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="252"/>
+        <location filename="../Main.qml" line="286"/>
         <source>Logging in...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="315"/>
+        <location filename="../Main.qml" line="351"/>
         <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="348"/>
+        <location filename="../Main.qml" line="385"/>
         <source>Choose a session...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="435"/>
+        <location filename="../Main.qml" line="430"/>
+        <source>Caps Lock is ON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="445"/>
+        <source>Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="445"/>
+        <source>Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="445"/>
+        <source>Suspend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="445"/>
+        <source>Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="445"/>
+        <source>Hybrid Sleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="508"/>
         <source>Login Success!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="444"/>
+        <location filename="../Main.qml" line="517"/>
         <source>Login Failure!</source>
         <translation type="unfinished"></translation>
     </message>

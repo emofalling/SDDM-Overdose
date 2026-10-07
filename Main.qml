@@ -2,9 +2,15 @@ import QtQuick
 import QtMultimedia
 import QtQuick.Layouts
 import QtQuick.Controls
+
 import "Widgets" as Widgets
 
+import org.kde.plasma.private.keyboardindicator as KI
+
+
+
 Rectangle {
+
     id: root
     anchors.fill: parent
     color: "#fde1f1"
@@ -53,6 +59,25 @@ Rectangle {
         id: pixelFont
         source: "Fonts/fusion-pixel/fusion-pixel-10px-proportional-latin.ttf"
     }
+
+    KI.KeyState {
+        id: capsLockState
+        key: Qt.Key_CapsLock
+        onLockedChanged: {
+            buttonSound.stop()
+            buttonSound.play()
+        }
+    }
+
+    Keys.onPressed: function(event) {
+        if (event.key === Qt.Key_PageUp) {
+            switchUserR.clicked()
+        } else if (event.key === Qt.Key_PageDown) {
+            switchUserL.clicked()
+        }
+    }
+
+    
 
     property var userNames: []
     property var userIcons: []
@@ -139,18 +164,22 @@ Rectangle {
                 spacing: 12 * config.Scale
                 anchors.horizontalCenter: parent.horizontalCenter
                 Widgets.PixelImageButton {
+                    id: switchUserL
                     iconSource: "../Images/arrow_l.png"
                     width: 12 * config.Scale
                     height: 46 * config.Scale
                     onClicked: {
-                        buttonSound.stop()
-                        buttonSound.play()
-                        switchUser(-1)
+                        if( currentUserIndex !== 0) {
+                            buttonSound.stop()
+                            buttonSound.play()
+                            switchUser(-1)
+                        }
                     }
                     opacity: currentUserIndex !== 0 ? 1 : 0
                     enabled: currentUserIndex !== 0
                 }
                 Image {
+                    /*
                     source: currentUserIndex === -1
                             ? "Images/newuser_icon.jpg"
                             : (
@@ -158,19 +187,24 @@ Rectangle {
                                 ? userIcons[currentUserIndex]
                                 : "Images/default_icon.jpg"
                             )
+                    */
+                    source: currentUserIndex === -1 ? "Images/newuser_icon.jpg" : userIcons[currentUserIndex]
                     width: 48 * config.Scale
                     height: 48 * config.Scale
                     fillMode: Image.PreserveAspectFit
                     // anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Widgets.PixelImageButton {
+                    id: switchUserR
                     iconSource: "../Images/arrow_r.png"
                     width: 12 * config.Scale
                     height: 46 * config.Scale
                     onClicked: {
-                        buttonSound.stop()
-                        buttonSound.play()
-                        switchUser(1)
+                        if( currentUserIndex !== -1) {
+                            buttonSound.stop()
+                            buttonSound.play()
+                            switchUser(1)
+                        }
                     }
                     opacity: currentUserIndex !== -1 ? 1 : 0
                     enabled: currentUserIndex !== -1
@@ -179,7 +213,7 @@ Rectangle {
 
             Text {
                 id: usernameText
-                text: userNames[currentUserIndex]
+                text: currentUserIndex === -1 ? "?" : userNames[currentUserIndex]
                 height: 24 * config.Scale
                 font.pixelSize: 20 * config.Scale
                 color: "#4e28cc"
@@ -289,7 +323,9 @@ Rectangle {
             spacing: 2 * config.Scale
             height: parent.height
             anchors.left: parent.left
+            anchors.right: parent.right
             anchors.leftMargin: 5 * config.Scale
+            anchors.rightMargin: 5 * config.Scale
             anchors.verticalCenter: parent.verticalCenter
             Widgets.PixelButton2 {
                 id: optionsButton
@@ -329,6 +365,7 @@ Rectangle {
                 onClicked: {
                     buttonSound.stop()
                     buttonSound.play()
+                    optionsMenu.visible = true
                 }
             }
 
@@ -385,10 +422,46 @@ Rectangle {
                 */
             }
 
+            Text {
+                id: capsLockText
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right : parent.right
+
+                text: capsLockState.locked ? "* " + qsTr("Caps Lock is ON") : ""
+                font.family: pixelFont.name
+                font.pixelSize: 10 * config.Scale
+                color: "#4e28cc"
+            }
 
         }            
         
 
+
+    }
+    Widgets.PixelDropdown2 {
+        id: optionsMenu
+        anchors.fill: parent
+
+        texts: [sddm.hostName, qsTr("Shutdown"), qsTr("Restart"), qsTr("Suspend"), qsTr("Hibernate"), qsTr("Hybrid Sleep")]
+        images: ["../Images/default_icon.jpg", "../Images/shutdown.png", "../Images/restart.png", "../Images/sleep.png", "../Images/hibernate.png", "../Images/hybrid_sleep.png"]
+        enableds: [null, sddm.canPowerOff, sddm.canReboot, sddm.canSuspend, sddm.canHibernate, sddm.canHybridSleep]
+        // enableds: [null, true, true, true, true, true]
+        funcs: [
+            undefined, 
+            function() { buttonSound.stop();buttonSound.play();sddm.powerOff() },
+            function() { buttonSound.stop();buttonSound.play();sddm.reboot() },
+            function() { buttonSound.stop();buttonSound.play();sddm.suspend() },
+            function() { buttonSound.stop();buttonSound.play();sddm.hibernate() },
+            function() { buttonSound.stop();buttonSound.play();sddm.hybridSleep() }
+        ]
+
+        menuX: optionsButton.x
+        menuY: bottomTab.y - 1 * config.Scale
+
+
+        fontFamily: pixelFont.name
+
+        menuWidth: 100 * config.Scale
 
     }
 

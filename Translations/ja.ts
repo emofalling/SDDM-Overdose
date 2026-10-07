@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="ja">
 <context>
     <name>Main</name>
     <message>
         <location filename="../Main.qml" line="227"/>
         <source>Username</source>
-        <translation>用户名</translation>
+        <translation>ユーザー名</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="243"/>
         <source>Password</source>
-        <translation>密码</translation>
+        <translation>パスワード</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="268"/>
         <source>Login</source>
-        <translation>登录</translation>
+        <translation>ログイン</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="286"/>
         <source>Logging in...</source>
-        <translation>正在登录...</translation>
+        <translation>ログイン中...</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="351"/>
         <source>Options...</source>
-        <translation>选项...</translation>
+        <translation>オプション...</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="385"/>
         <source>Choose a session...</source>
-        <translation>选择会话...</translation>
+        <translation>セッションを選択...</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="430"/>
         <source>Caps Lock is ON</source>
-        <translation>大写锁定已开启</translation>
+        <translation>Caps Lock がオンです</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="445"/>
         <source>Shutdown</source>
-        <translation>关机</translation>
+        <translation>シャットダウン</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="445"/>
         <source>Restart</source>
-        <translation>重启</translation>
+        <translation>再起動</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="445"/>
         <source>Suspend</source>
-        <translation>挂起</translation>
+        <translation>サスペンド</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="445"/>
         <source>Hibernate</source>
-        <translation>休眠</translation>
+        <translation>ハイバネート</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="445"/>
         <source>Hybrid Sleep</source>
-        <translation>混合睡眠</translation>
+        <translation>ハイブリッドスリープ</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="508"/>
         <source>Login Success!</source>
-        <translation>登录成功！</translation>
+        <translation>ログイン成功！</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="517"/>
         <source>Login Failure!</source>
-        <translation>登录失败！</translation>
+        <translation>ログイン失敗！</translation>
     </message>
 </context>
 </TS>
